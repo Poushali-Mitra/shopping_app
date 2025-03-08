@@ -1,0 +1,17 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/cart.html', (req, res) => {
+    res.sendFile(__dirname + '/cart.html');
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
